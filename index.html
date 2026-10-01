@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HydroFlow - Smart Water Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="logo-icon">💧</span>
+      <h1>HydroFlow</h1>
+    </div>
+    <nav>
+      <a href="#stats">Overview</a>
+      <a href="#calculator">Usage Calculator</a>
+      <a href="#report">Report Issue</a>
+      <a href="#tips">Conservation</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero / Metrics Overview -->
+    <section id="stats" class="hero-section">
+      <div class="hero-text">
+        <h2>Smart Water Monitoring & Conservation</h2>
+        <p>Monitor household consumption, detect inefficiencies, and log community pipe leaks in real time.</p>
+      </div>
+      <div class="metric-grid">
+        <div class="metric-card">
+          <span class="metric-val">135 L</span>
+          <span class="metric-lbl">Target Daily Usage / Person</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-val" id="totalSavedMetric">1,420 L</span>
+          <span class="metric-lbl">Community Water Saved</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-val" id="activeReportsMetric">3</span>
+          <span class="metric-lbl">Active Leak Alerts</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Water Calculator -->
+    <section id="calculator" class="panel-section">
+      <div class="panel-header">
+        <h3>Household Daily Water Footprint</h3>
+        <p>Estimate your household's daily consumption to see where you can optimize.</p>
+      </div>
+
+      <div class="calculator-grid">
+        <div class="calc-form">
+          <div class="form-group">
+            <label for="showers">Shower Duration (Total Minutes):</label>
+            <input type="number" id="showers" min="0" value="15" />
+            <small>~9 liters per minute</small>
+          </div>
+
+          <div class="form-group">
+            <label for="flushes">Toilet Flushes (Total Count):</label>
+            <input type="number" id="flushes" min="0" value="6" />
+            <small>~6 liters per flush</small>
+          </div>
+
+          <div class="form-group">
+            <label for="washing">Washing Machine Loads / Day:</label>
+            <input type="number" id="washing" min="0" step="0.5" value="1" />
+            <small>~50 liters per cycle</small>
+          </div>
+
+          <button id="calcBtn" class="primary-btn">Calculate Footprint</button>
+        </div>
+
+        <div class="calc-results">
+          <h4>Estimated Daily Consumption</h4>
+          <div class="result-number" id="litersResult">221 L</div>
+          <p id="analysisMessage">Moderate consumption. Consider reducing shower time to save ~30 L daily.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Report a Leak / Pipeline Fault -->
+    <section id="report" class="panel-section">
+      <div class="panel-header">
+        <h3>Report Water Wastage or Pipeline Leak</h3>
+        <p>Log street leaks, open valves, or water quality issues for rapid repair.</p>
+      </div>
+
+      <form id="leakForm" class="leak-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="location">Location / Landmark:</label>
+            <input type="text" id="location" placeholder="e.g., Sector 4, North Cross Road" required />
+          </div>
+          <div class="form-group">
+            <label for="severity">Severity Level:</label>
+            <select id="severity">
+              <option value="Minor Drip">Minor Drip / Seepage</option>
+              <option value="Continuous Flow">Continuous Pipe Flow</option>
+              <option value="Critical Burst">Burst Mainline / Heavy Flooding</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Issue Description:</label>
+          <textarea id="description" rows="3" placeholder="Describe the leak or supply issue..." required></textarea>
+        </div>
+
+        <button type="submit" class="danger-btn">Submit Incident Report</button>
+      </form>
+
+      <div class="recent-reports">
+        <h4>Recent Incident Log</h4>
+        <ul id="reportList" class="report-list">
+          <li class="report-item minor">
+            <strong>Main Block Gate 2</strong> — Minor Drip (Inspection scheduled)
+          </li>
+          <li class="report-item critical">
+            <strong>South Storage Overhead Pipe</strong> — Critical Burst (Crew dispatched)
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Conservation Strategies -->
+    <section id="tips" class="panel-section">
+      <div class="panel-header">
+        <h3>Rainwater Harvesting & Efficiency Best Practices</h3>
+      </div>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <h4>Rooftop Rainwater Harvesting</h4>
+          <p>Channeling 100 sq. meters of rooftop area can capture over 80,000 liters of recharge water annually during monsoon seasons.</p>
+        </div>
+        <div class="tip-card">
+          <h4>Greywater Recycling</h4>
+          <p>Diverting sink and laundry wastewater through simple gravel/sand filtration yields safe non-potable water for gardening and flushing.</p>
+        </div>
+        <div class="tip-card">
+          <h4>Aerators & Pressure Regulators</h4>
+          <p>Installing standard faucet aerators cuts tap volume by up to 40% without compromising water pressure feel.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 HydroFlow Project — Built with Visual Studio & GitHub</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
